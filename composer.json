@@ -1,0 +1,30 @@
+{
+    "name": "gentor/userengage-php",
+    "description": "UserEngage.io Rest API PHP SDK",
+    "keywords": [
+        "userengage",
+        "userengage.io",
+        "user engage",
+        "rest",
+        "api",
+        "php",
+        "sdk"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evgeni Nurkov",
+            "email": "evgeni.nurkov@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "php": ">= 5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gentor\\Userengage\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
