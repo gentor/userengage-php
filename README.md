@@ -7,7 +7,7 @@ PHP 5.6 SDK for UserEngage Rest API
 Installation using composer:
 
 ```
-composer require userengage-php
+composer require gentor/userengage-php
 ```
 
 ## Usage
@@ -55,8 +55,8 @@ $users = $users->findByDate($minTimestamp, $maxTimestamp, $type);
 $results = $users->details();
 
 // Pagination
-$users = $client->nextPage($results));
-$users = $client->previousPage($results));
+$users = $client->nextPage($results);
+$users = $client->previousPage($results);
 ```
 
 ## Documentation
