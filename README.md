@@ -1,4 +1,4 @@
-# UserEngage.io PHP SDK
+# UserEngage.com PHP SDK
 
 PHP 5.6 SDK for UserEngage Rest API
 
@@ -61,4 +61,4 @@ $users = $client->previousPage($results);
 
 ## Documentation
 
-[UserEngage API](https://userengage.io/en-us/api/introduction/)
+[UserEngage API](https://userengage.com/en-us/api/introduction/)

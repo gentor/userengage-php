@@ -24,7 +24,7 @@ class UserengageClient
     /**
      * @var string
      */
-    protected $endPoint = 'https://app.userengage.io/api/public/';
+    protected $endPoint = 'https://app.userengage.com/api/public/';
 
     /**
      * UserengageClient constructor.
