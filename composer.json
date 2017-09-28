@@ -1,9 +1,9 @@
 {
     "name": "gentor/userengage-php",
-    "description": "UserEngage.io Rest API PHP SDK",
+    "description": "UserEngage.com Rest API PHP SDK",
     "keywords": [
         "userengage",
-        "userengage.io",
+        "userengage.com",
         "user engage",
         "rest",
         "api",
