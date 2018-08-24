@@ -24,7 +24,9 @@ class UserengageClient
     /**
      * @var string
      */
-    protected $endPoint = 'https://app.userengage.io/api/public/';
+    protected $endPoint = 'https://app.userengage.com/api/public/';
+
+    public $users;
 
     /**
      * UserengageClient constructor.
@@ -34,6 +36,7 @@ class UserengageClient
     {
         $this->apiKey = $apiKey;
         $this->httpClient = new Client();
+        $this->users = new UserengageUsers($this);
     }
 
     /**
@@ -61,7 +64,7 @@ class UserengageClient
      * @param array $options
      * @return mixed
      */
-    public function post($endpoint, array $options)
+    public function post($endpoint, array $options = [])
     {
         try {
             $response = $this->httpClient->request(

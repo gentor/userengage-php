@@ -46,6 +46,16 @@ class UserengageUsers
 
     /**
      * @param $id
+     * @param array $options
+     * @return mixed
+     */
+    public function updateByCustomId($id, array $options)
+    {
+        return $this->client->put('users-by-id/' . $id . '/', $options);
+    }
+
+    /**
+     * @param $id
      * @return mixed
      */
     public function delete($id)
@@ -71,6 +81,15 @@ class UserengageUsers
     public function find($id)
     {
         return $this->details($id);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findByCustomId($id)
+    {
+        return $this->client->get('users-by-id/search/', ['user_id' => $id]);
     }
 
     /**
