@@ -3,10 +3,10 @@
 namespace Gentor\Userengage;
 
 /**
- * Class UserengageUsers
+ * Class UserengageCompanies
  * @package Gentor\Userengage
  */
-class UserengageUsers
+class UserengageCompanies
 {
     /** @var UserengageClient $client */
     private $client;
@@ -14,7 +14,7 @@ class UserengageUsers
     /**
      * @var string
      */
-    protected $endPoint = 'users/';
+    protected $endPoint = 'companies/';
 
     /**
      * UserengageUsers constructor.
@@ -51,7 +51,17 @@ class UserengageUsers
      */
     public function updateByCustomId($id, array $options)
     {
-        return $this->client->put('users-by-id/' . $id . '/', $options);
+        return $this->client->put('companies-by-id/' . $id . '/', $options);
+    }
+
+    /**
+     * @param $companyId
+     * @param array $attributes
+     * @return mixed
+     */
+    public function setAttributes($companyId, array $attributes)
+    {
+        return $this->client->post('companies-by-id/' . $companyId . '/set_multiple_attributes/', $attributes);
     }
 
     /**
@@ -69,7 +79,7 @@ class UserengageUsers
      */
     public function deleteByCustomId($id)
     {
-        return $this->client->delete('users-by-id/' . $id . '/');
+        return $this->client->delete('companies-by-id/' . $id . '/');
     }
 
     /**
@@ -98,47 +108,6 @@ class UserengageUsers
      */
     public function findByCustomId($id)
     {
-        return $this->client->get('users-by-id/search/', ['user_id' => $id]);
-    }
-
-    /**
-     * @param $email
-     * @return mixed
-     */
-    public function findByEmail($email)
-    {
-        $endpoint = $this->endPoint . 'search';
-
-        return $this->client->get($endpoint, ['email' => $email]);
-    }
-
-    /**
-     * @param $key
-     * @return mixed
-     */
-    public function findByKey($key)
-    {
-        $endpoint = $this->endPoint . 'search';
-
-        return $this->client->get($endpoint, ['key' => $key]);
-    }
-
-    /**
-     * @param int $minTimestamp
-     * @param int $maxTimestamp
-     * @param string $type first_seen|last_seen|last_contacted
-     * @return mixed
-     */
-    public function findByDate($minTimestamp, $maxTimestamp = null, $type = 'first_seen')
-    {
-        if (!$maxTimestamp) {
-            $maxTimestamp = time();
-        }
-
-        return $this->client->get($this->endPoint, [
-            'search' => $type,
-            'min' => $minTimestamp,
-            'max' => $maxTimestamp,
-        ]);
+        return $this->client->get('companies-by-id/' . $id);
     }
 }

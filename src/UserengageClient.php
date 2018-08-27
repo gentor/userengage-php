@@ -28,6 +28,10 @@ class UserengageClient
 
     public $users;
 
+    public $companies;
+
+    public $events;
+
     /**
      * UserengageClient constructor.
      * @param $apiKey
@@ -37,6 +41,8 @@ class UserengageClient
         $this->apiKey = $apiKey;
         $this->httpClient = new Client();
         $this->users = new UserengageUsers($this);
+        $this->companies = new UserengageCompanies($this);
+        $this->events = new UserengageEvents($this);
     }
 
     /**

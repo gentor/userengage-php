@@ -54,35 +54,6 @@ class UserengageService
     }
 
     /**
-     * @param array $options
-     *
-     * @return null
-     * @throws \GuzzleHttp\Exception\ClientException
-     */
-    public function getUser(array $options)
-    {
-        try {
-            $user = $this->client->users->getUsers($options);
-        } catch (ClientException $e) {
-            if ($e->getCode() == 404) {
-                $user = null;
-            } else {
-                throw $e;
-            }
-        }
-
-        return $user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAllUsers()
-    {
-        return $this->client->users->getUsers([]);
-    }
-
-    /**
      * Create / Update User
      *
      * @param array $data
@@ -95,18 +66,6 @@ class UserengageService
     }
 
     /**
-     * @param       $id
-     *
-     * @param array $options
-     *
-     * @return mixed
-     */
-    public function deleteUser($id, $options = [])
-    {
-        return $this->client->users->deleteUser($id, $options);
-    }
-
-    /**
      * @param $user_id
      *
      * @return mixed
@@ -114,17 +73,7 @@ class UserengageService
      */
     public function deleteUserByUserId($user_id)
     {
-        try {
-            $user = $this->deleteUser(null, ['user_id' => $user_id]);
-        } catch (ClientException $e) {
-            if ($e->getCode() == 404) {
-                $user = null;
-            } else {
-                throw $e;
-            }
-        }
-
-        return $user;
+        return $this->client->users->deleteByCustomId($id);
     }
 
 }
